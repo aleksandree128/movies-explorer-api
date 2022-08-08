@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const isUrl = require('validator/lib/isURL');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -25,33 +26,24 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator(v) {
-        // eslint-disable-next-line no-useless-escape
-        return /https?\:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gm.test(v);
-      },
-      message: (props) => `${props.value} is not a valid url!`,
+      validator: (url) => isUrl(url),
+      message: 'Некорректный url',
     },
   },
   trailer: {
     type: String,
     required: true,
     validate: {
-      validator(v) {
-        // eslint-disable-next-line no-useless-escape
-        return /https?\:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gm.test(v);
-      },
-      message: (props) => `${props.value} is not a valid url!`,
+      validator: (url) => isUrl(url),
+      message: 'Некорректный url',
     },
   },
   thumbnail: {
     type: String,
     required: true,
     validate: {
-      validator(v) {
-        // eslint-disable-next-line no-useless-escape
-        return /https?\:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/gm.test(v);
-      },
-      message: (props) => `${props.value} is not a valid url!`,
+      validator: (url) => isUrl(url),
+      message: 'Некорректный url',
     },
   },
   owner: {
