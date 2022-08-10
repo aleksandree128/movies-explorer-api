@@ -30,7 +30,7 @@ const movieSchema = new mongoose.Schema({
       message: 'Некорректный url',
     },
   },
-  trailer: {
+  trailerLink: {
     type: String,
     required: true,
     validate: {
@@ -65,5 +65,4 @@ const movieSchema = new mongoose.Schema({
   },
 });
 
-// создаём модель и экспортируем её
 module.exports = mongoose.model('movie', movieSchema);

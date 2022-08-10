@@ -1,2 +1,2 @@
 # movies-explorer-api
-бэкенд http://korshinov.diplom.nomoredomains.sbs
+бэкенд http://api.korshinov.diplom.nomoredomains.sbs
