@@ -1,4 +1,4 @@
-const mainError = (err, req, res, next) => {
+const handleError = (err, req, res, next) => {
   const { statusCode = 500, message } = err;
 
   res.status(statusCode).send({ message: statusCode === 500 ? 'На сервере произошла ошибка' : message });
@@ -6,4 +6,4 @@ const mainError = (err, req, res, next) => {
   next();
 };
 
-module.exports = mainError;
+module.exports = handleError;

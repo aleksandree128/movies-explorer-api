@@ -1,20 +1,20 @@
 const router = require('express').Router();
-const { createUser, getlogin } = require('../controllers/users');
-const NotFoundError = require('../code_errors/notFound-errors');
+const { createUser, login } = require('../controllers/users');
+const NotFound = require('../errors/NotFound');
 const auth = require('../middlewares/auth');
 const { validationCreateUser, validationLogin } = require('../middlewares/validations');
-const user = require('./user');
-const movie = require('./movie');
+const userRoutes = require('./users');
+const movieRoutes = require('./movies');
 
 router.post('/signup', validationCreateUser, createUser);
 
-router.post('/signin', validationLogin, getlogin);
+router.post('/signin', validationLogin, login);
 
-router.use('/users', auth, user);
-router.use('/movies', auth, movie);
+router.use('/users', auth, userRoutes);
+router.use('/movies', auth, movieRoutes);
 
 router.use('*', (req, res, next) => {
-  next(new NotFoundError('Неправильный путь. Error 404'));
+  next(new NotFound('Неправильный путь. Error 404'));
 });
 
 module.exports = router;
