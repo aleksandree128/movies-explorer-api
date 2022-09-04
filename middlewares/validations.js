@@ -1,7 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 const { regular } = require('../utils/regular');
 
-const validationCreateMovie = celebrate({
+module.exports.validationCreateMovie = celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
     director: Joi.string().required(),
@@ -17,20 +17,20 @@ const validationCreateMovie = celebrate({
   }),
 });
 
-const validationDeleteMovie = celebrate({
+module.exports.validationDeleteMovie = celebrate({
   params: Joi.object().keys({
     movieId: Joi.string().hex().length(24).required(),
   }),
 });
 
-const validationUpdateUser = celebrate({
+module.exports.validationUpdateUser = celebrate({
   body: Joi.object().keys({
     email: Joi.string().email().required(),
     name: Joi.string().min(2).max(30).required(),
   }),
 });
 
-const validationCreateUser = celebrate({
+module.exports.validationCreateUser = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30).required(),
     email: Joi.string().email().required(),
@@ -38,17 +38,9 @@ const validationCreateUser = celebrate({
   }),
 });
 
-const validationLogin = celebrate({
+module.exports.validationLogin = celebrate({
   body: Joi.object().keys({
     email: Joi.string().email().required(),
     password: Joi.string().required(),
   }),
 });
-
-module.exports = {
-  validationCreateMovie,
-  validationDeleteMovie,
-  validationUpdateUser,
-  validationCreateUser,
-  validationLogin,
-};
