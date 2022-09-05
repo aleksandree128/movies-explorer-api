@@ -16,8 +16,8 @@ const app = express();
 const options = {
   origin: [
     'http://localhost:3000',
-    'http://maria.diploma.nomoredomains.xyz',
-    'https://maria.diploma.nomoredomains.xyz',
+    'http://korshinov.diplom.nomoredomains.sbs/',
+    'https://korshinov.diplom.nomoredomains.sbs/',
   ],
   credentials: true,
 };
