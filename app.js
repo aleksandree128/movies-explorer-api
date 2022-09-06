@@ -41,4 +41,6 @@ app.use(errors());
 
 app.use(handleError);
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Работа запущена, порт ${PORT}`);
+});
