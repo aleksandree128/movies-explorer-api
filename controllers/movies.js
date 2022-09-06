@@ -45,7 +45,7 @@ module.exports.saveMovies = (req, res, next) => {
       }
     });
 };
-
+/*
 module.exports.createMovie = (req, res, next) => {
   const owner = req.user._id;
 
@@ -58,7 +58,7 @@ module.exports.createMovie = (req, res, next) => {
       }
       next(err);
     });
-};
+};*/
 
 module.exports.deleteMovies = (req, res, next) => {
   const cardRemove = () => {
