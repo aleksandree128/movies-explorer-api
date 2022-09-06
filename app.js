@@ -16,8 +16,8 @@ const app = express();
 const options = {
   origin: [
     'http://localhost:3000',
-    'http://maria.diploma.nomoredomains.xyz',
-    'https://maria.diploma.nomoredomains.xyz',
+    'http://korshinov.diplom.nomoredomains.sbs/',
+    'https://korshinov.diplom.nomoredomains.sbs/',
   ],
   credentials: true,
 };
@@ -41,4 +41,6 @@ app.use(errors());
 
 app.use(handleError);
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Работа запущена, порт ${PORT}`);
+});
