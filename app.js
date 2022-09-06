@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const handleError = require('./middlewares/handleError');
 const router = require('./routes');
+const indexRouter = require('./routes/index');
 
 const { PORT = 3000, DATABASE = 'mongodb://localhost:27017/moviesdb' } = process.env;
 
@@ -30,6 +31,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect(DATABASE);
 
 app.use(requestLogger);
+
+app.use(indexRouter);
 
 app.use(helmet());
 
